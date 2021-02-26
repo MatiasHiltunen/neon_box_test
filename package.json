@@ -22,7 +22,7 @@
     "build-release": "neon build --release",
     "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "package": "node-pre-gyp package",
-    "upload-binary": "npm run build-release && node-pre-gyp package && node-pre-gyp-github publish",
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
     "version": "npm run build-release"
   },
   "binary": {
