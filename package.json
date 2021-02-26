@@ -8,21 +8,22 @@
     "url": "git+https://github.com/MatiasHiltunen/neon_box_test.git"
   },
   "files": [
+    "native/index.node",
     "lib"
   ],
   "author": "matias.hiltunen <matias.s.j@hotmail.com>",
   "license": "MIT",
   "dependencies": {
     "neon-cli": "^0.7.1",
-    "node-pre-gyp": "^0.17.0"
+    "node-pre-gyp": "^0.17.0",
+    "node-pre-gyp-github": "^1.4.3"
   },
   "scripts": {
+    "build-release": "neon build --release",
     "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "package": "node-pre-gyp package",
-    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish"
-  },
-  "devDependencies": {
-    "node-pre-gyp-github": "^1.4.3"
+    "upload-binary": "npm run build-release && node-pre-gyp package && node-pre-gyp-github publish",
+    "version": "npm run build-release"
   },
   "binary": {
     "module_name": "index",
