@@ -19,11 +19,9 @@
     "node-pre-gyp-github": "^1.4.3"
   },
   "scripts": {
-    "build-release": "neon build --release",
     "install": "node-pre-gyp install --fallback-to-build=false || neon build --release",
     "package": "node-pre-gyp package",
-    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish --release",
-    "version": "npm run build-release"
+    "upload-binary": "node-pre-gyp package && node-pre-gyp-github publish --release"
   },
   "binary": {
     "module_name": "index",
