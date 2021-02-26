@@ -11,7 +11,8 @@ node_js:
 cache: cargo
 before_install:
   - |
-    if [ "$TRAVIS_OS_NAME" == "windows" ]; then choco install rust;
+    if [ "$TRAVIS_OS_NAME" == "windows" ]; then
+      choco install rust && Update-SessionEnvironment
     else
       curl https://sh.rustup.rs -sSf > /tmp/rustup.sh && /
       sh /tmp/rustup.sh -y && /
