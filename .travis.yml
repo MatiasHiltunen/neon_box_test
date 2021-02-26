@@ -8,14 +8,13 @@ os:
 language: node_js
 node_js:
   - node
+  - 14
   - 10
-  - 9
-  - 8
 cache: cargo
 before_install:
   - |
     if [ "$TRAVIS_OS_NAME" == "windows" ]; then
-      choco install rust && refreshenv
+      choco install rust && cmd.exe //c "RefreshEnv.cmd & iisexpress.exe"
     else
       curl https://sh.rustup.rs -sSf > /tmp/rustup.sh && /
       sh /tmp/rustup.sh -y && /
